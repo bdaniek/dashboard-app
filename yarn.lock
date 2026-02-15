@@ -492,6 +492,11 @@
     "@eslint/core" "^0.17.0"
     levn "^0.4.1"
 
+"@fontsource/poppins@^5.2.7":
+  version "5.2.7"
+  resolved "https://registry.yarnpkg.com/@fontsource/poppins/-/poppins-5.2.7.tgz#bad145a8a625340873faff1f95b254f032e0d588"
+  integrity sha512-6uQyPmseo4FgI97WIhA4yWRlNaoLk4vSDK/PyRwdqqZb5zAEuc+Kunt8JTMcsHYUEGYBtN15SNkMajMdqUSUmg==
+
 "@humanfs/core@^0.19.1":
   version "0.19.1"
   resolved "https://registry.npmjs.org/@humanfs/core/-/core-0.19.1.tgz"

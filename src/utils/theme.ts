@@ -1,10 +1,16 @@
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
+  typography: {
+    fontFamily: 'Poppins',
+  },
   palette: {
-
     primary: {
-      main: '#6366F1',
+      main: '#f05aa0',
+    },
+
+    secondary: {
+      main: '#FF8C42',
     },
 
     success: {
@@ -24,15 +30,43 @@ const theme = createTheme({
     },
 
     background: {
-      default: '#0F172A',
+      default: '#eeece8',
       paper: '#1E293B',
     },
 
     text: {
-      primary: '#F1F5F9',
+      primary: '#000',
       secondary: '#94A3B8',
     },
-  }
+  },
+  components: {
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          background: 'linear-gradient(135deg, #FF8C42 0%, #FF6B6B 50%, #E91E63 100%)',
+          color: 'white',
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        containedPrimary: {
+          color: 'white',
+          background: 'linear-gradient(135deg, #FF8C42 0%, #f05aa0 100%)',
+          '&:hover': {
+            background: 'linear-gradient(135deg, #FF6B6B 0%, #E91E63 100%)',
+          },
+        },
+      },
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          borderRadius: '20px !important',
+        },
+      },
+    },
+  },
 });
 
 export default theme;

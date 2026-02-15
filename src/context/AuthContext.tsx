@@ -34,7 +34,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const login = async (email: string, password: string) => {
     setIsLoading(true);
     try {
-      // eslint-disable-next-line import/no-unresolved
       const { data } = await import('@/services/api').then((mod) => mod.login(email, password));
       setUser(data.user);
       setIsAuthenticated(true);
