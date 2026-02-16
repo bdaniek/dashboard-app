@@ -9,7 +9,7 @@ interface DashboardData {
     conversion: number;
   };
   revenue: { month: string; revenue: number }[];
-  todos: { id: string; title: string; completed: boolean; priority: string }[];
+  todos: { id: string; title: string; priority: string; assignedTo: string }[];
   usersBySource: { source: string; count: number; percentage: number }[];
   weeklyActivity: { day: string; visits: number }[];
   activityFeed: { id: string; user: string; action: string; timestamp: string }[];

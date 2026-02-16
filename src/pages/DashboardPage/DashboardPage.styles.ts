@@ -12,5 +12,7 @@ export const Wrapper = styled('div')`
 export const Container = styled('div')`
   min-height: 50%;
   width: 100%;
-  background: red;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 `;

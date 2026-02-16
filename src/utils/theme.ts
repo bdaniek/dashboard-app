@@ -31,12 +31,12 @@ const theme = createTheme({
 
     background: {
       default: '#eeece8',
-      paper: '#1E293B',
+      paper: '#f5f4f2',
     },
 
     text: {
       primary: '#000',
-      secondary: '#94A3B8',
+      secondary: '#8392A7',
     },
   },
   components: {
