@@ -38,6 +38,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setUser(data.user);
       setIsAuthenticated(true);
       localStorage.setItem('user', JSON.stringify(data.user));
+    } catch (err) {
+      console.error('Login failed', err);
+      throw err;
     } finally {
       setIsLoading(false);
     }

@@ -1,7 +1,7 @@
 import { styled } from '@mui/material';
 
 export const Wrapper = styled('div')`
-  height: 300px;
+  height: 100%;
   width: 400px;
   background: linear-gradient(135deg, #ff8c42 0%, #f05aa0 100%);
   border-radius: 30px;
@@ -42,14 +42,14 @@ export const Value = styled('div')`
   font-size: 44px;
   font-weight: 700;
   line-height: 50px;
-  letter-spacing: 1.5px;
   display: flex;
 `;
 
 export const Divider = styled('div')`
   position: absolute;
-  top: 10%;
-  height: 80%;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 80px;
   width: 2px;
   background-image: repeating-linear-gradient(
     to bottom,

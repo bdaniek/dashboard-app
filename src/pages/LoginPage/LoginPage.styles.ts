@@ -23,11 +23,16 @@ export const Title = styled('div')`
   text-align: center;
 `;
 
-export const Button = styled(ButtonMUI)`
+export const LoginButton = styled(ButtonMUI)`
   border-radius: 20px;
 `;
 
-export const InputWrapper = styled('div')``;
+export const ErrorContainer = styled('div')`
+  color: ${({ theme }) => theme.palette.error.main};
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+`;
 
 export const StyledInput = styled(TextField)``;
 

@@ -25,24 +25,27 @@ export const ListContainer = styled('div')`
   overflow-y: scroll;
 `;
 
-export const TodoItem = styled('div')`
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+export const ActivityItem = styled('div')`
+  padding: 16px;
+  width: 100%;
+  background: ${({ theme }) => theme.palette.background.paper};
   border-radius: 20px;
-  background: ${({ theme }) => theme.palette.background.default};
-`;
-
-export const TodoInformation = styled('div')`
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 `;
 
-export const TodoTitle = styled('div')``;
+export const Info = styled('div')``;
 
-export const TodoPriority = styled('div')`
-  color: ${({ theme }) => theme.palette.text.secondary};
-  font-weight: 700;
-  font-size: 14px;
+export const Timestamp = styled('div')`
+  font-size: 12px;
+`;
+
+export const LoaderContainer = styled('div')`
+  width: 100%;
+  height: 100%;
+  min-height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

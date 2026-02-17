@@ -12,7 +12,6 @@ interface DashboardData {
   todos: { id: string; title: string; priority: string; assignedTo: string }[];
   usersBySource: { source: string; count: number; percentage: number }[];
   weeklyActivity: { day: string; visits: number }[];
-  activityFeed: { id: string; user: string; action: string; timestamp: string }[];
 }
 
 type DashboardSuccess = {
@@ -31,7 +30,7 @@ type DashboardError = {
 
 type DashboardState = DashboardLoading | DashboardSuccess | DashboardError;
 
-export function useFetchDashboard(): DashboardState {
+export const useFetchDashboard = (): DashboardState => {
   const [state, setState] = useState<DashboardState>({
     status: 'loading',
   });
@@ -53,4 +52,4 @@ export function useFetchDashboard(): DashboardState {
   }, []);
 
   return state;
-}
+};

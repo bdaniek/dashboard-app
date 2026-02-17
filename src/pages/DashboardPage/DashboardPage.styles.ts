@@ -10,9 +10,28 @@ export const Wrapper = styled('div')`
 `;
 
 export const Container = styled('div')`
-  min-height: 50%;
+  height: 45%;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px 40px;
+`;
+
+export const LoaderContainer = styled('div')`
+  min-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ErrorContainer = styled('div')`
+  min-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
 `;

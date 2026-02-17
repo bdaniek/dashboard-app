@@ -22,7 +22,7 @@ const Stats = ({ totalRevenue, totalUsers, engagement, conversion }: StatsProps)
     <Wrapper>
       <RevenueSection>
         <Label>Total revenue</Label>
-        <Value>{`${totalRevenue} PLN`}</Value>
+        <Value>{`$${totalRevenue}`}</Value>
       </RevenueSection>
 
       <UserSection>

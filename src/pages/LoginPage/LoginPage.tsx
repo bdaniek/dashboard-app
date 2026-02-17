@@ -1,7 +1,15 @@
-import { Container, StyledInput, Button, Information, Title, Wrapper } from './LoginPage.styles.ts';
-import { useState } from 'react';
+import {
+  Container,
+  LoginButton,
+  Information,
+  Title,
+  Wrapper,
+  ErrorContainer,
+} from './LoginPage.styles.ts';
+import { type SyntheticEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext.tsx';
+import { TextField } from '@mui/material';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -10,7 +18,7 @@ export default function LoginPage() {
   const { login, isLoading } = useAuth();
   const navigate = useNavigate();
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleLogin = async (e: SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError('');
 
@@ -26,9 +34,9 @@ export default function LoginPage() {
     <Wrapper>
       <Container>
         <Title>Log In</Title>
-        <div>{error}</div>
+        <ErrorContainer>{error}</ErrorContainer>
         <form onSubmit={handleLogin}>
-          <StyledInput
+          <TextField
             fullWidth
             label="Email"
             type="email"
@@ -38,7 +46,7 @@ export default function LoginPage() {
             disabled={isLoading}
           />
 
-          <StyledInput
+          <TextField
             fullWidth
             label="Password"
             type="password"
@@ -48,7 +56,7 @@ export default function LoginPage() {
             disabled={isLoading}
           />
 
-          <Button
+          <LoginButton
             fullWidth
             variant="contained"
             type="submit"
@@ -56,7 +64,7 @@ export default function LoginPage() {
             sx={{ mt: 3, py: 1.5 }}
           >
             {isLoading ? 'Loading...' : 'Sign In'}
-          </Button>
+          </LoginButton>
         </form>
       </Container>
       <Information>
