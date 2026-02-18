@@ -29,14 +29,14 @@ export default function DashboardPage() {
     <Wrapper>
       <Header />
       <Container>
-        <Stats {...state.data.stats} isLoading={isDataLoading} />
+        <Stats {...state.data.stats} />
         <RevenueChart revenue={state.data.revenue} />
         <Todos todos={state.data.todos} />
       </Container>
       <Container>
-        <ActivityFeed />
-        <UserSourceChart usersBySource={state.data.usersBySource} />
         <WeeklyActivityChart weeklyActivity={state.data.weeklyActivity} />
+        <UserSourceChart usersBySource={state.data.usersBySource} />
+        <ActivityFeed />
       </Container>
     </Wrapper>
   );

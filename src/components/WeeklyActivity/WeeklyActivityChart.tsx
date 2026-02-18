@@ -1,5 +1,6 @@
 import { ResponsiveContainer, Tooltip, PieChart, Pie, Cell, Legend } from 'recharts';
 import { Wrapper, Title } from '@/components/WeeklyActivity/WeeklyActivityChart.styles.ts';
+import { weeklyActivityColors } from '@/utils/theme.ts';
 
 interface WeeklyActivityChartProps {
   weeklyActivity: {
@@ -7,8 +8,6 @@ interface WeeklyActivityChartProps {
     visits: number;
   }[];
 }
-
-const COLORS = ['#ff7a3d', '#ff5e57', '#ff3e6e', '#d63ea8', '#8c3ebf', '#4c6ef5', '#38bdf8'];
 
 const WeeklyActivityChart = ({ weeklyActivity }: WeeklyActivityChartProps) => {
   const totalVisits = weeklyActivity.reduce((acc, cur) => acc + cur.visits, 0);
@@ -29,9 +28,12 @@ const WeeklyActivityChart = ({ weeklyActivity }: WeeklyActivityChartProps) => {
             outerRadius={120}
             paddingAngle={4}
             cornerRadius={10}
+            label={({ name, percent }) =>
+              `${name}: ${percent != null ? (percent * 100).toFixed(1) : '0.0'}%`
+            }
           >
             {weeklyActivity.map((_, index) => (
-              <Cell key={index} fill={COLORS[index % COLORS.length]} />
+              <Cell key={index} fill={weeklyActivityColors[index % weeklyActivityColors.length]} />
             ))}
           </Pie>
 

@@ -35,6 +35,8 @@ export const MetricBlock = styled('div')`
 export const Label = styled('div')`
   color: white;
   font-size: 16px;
+  display: flex;
+  align-items: center;
 `;
 
 export const Value = styled('div')`

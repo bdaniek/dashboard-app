@@ -44,9 +44,11 @@ const RevenueChart = ({ revenue }: RevenueChartProps) => {
             axisLine={false}
             tickLine={false}
             tick={{ fill: theme.palette.text.secondary, fontSize: 12 }}
+            tickFormatter={(value) => `$${value.toLocaleString()}`}
           />
 
           <Tooltip
+            formatter={(value: number | undefined) => [`$${value?.toLocaleString()}`, 'Revenue']}
             contentStyle={{
               background: theme.palette.background.paper,
               border: 'none',

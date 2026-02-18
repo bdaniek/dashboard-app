@@ -1,5 +1,16 @@
 import { createTheme } from '@mui/material/styles';
 
+export const usersSourceColors = ['#ff7a3d', '#ff5e57', '#ff3e6e', '#d63ea8', '#8c3ebf'];
+export const weeklyActivityColors = [
+  '#ff7a3d',
+  '#ff5e57',
+  '#ff3e6e',
+  '#d63ea8',
+  '#8c3ebf',
+  '#4c6ef5',
+  '#38bdf8',
+];
+
 const theme = createTheme({
   typography: {
     fontFamily: 'Poppins',
@@ -37,6 +48,7 @@ const theme = createTheme({
     text: {
       primary: '#000',
       secondary: '#8392A7',
+      disabled: '#f0ece1',
     },
   },
   components: {

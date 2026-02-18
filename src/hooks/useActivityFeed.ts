@@ -1,9 +1,10 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import useInfiniteScroll from 'react-infinite-scroll-hook';
 import type { ActivityItem } from '@/components/ActivityFeed/ActivityFeed';
+import { weeklyActivityColors as colors } from '@/utils/theme.ts';
 
-const USERS = ['John', 'Anna', 'Mike', 'Kate', 'Tom', 'Sara'];
-const ACTIONS = [
+const users = ['John', 'Anna', 'Mike', 'Kate', 'Tom', 'Sara'];
+const actions = [
   'logged in',
   'uploaded a file',
   'deleted a task',
@@ -14,12 +15,33 @@ const ACTIONS = [
 const BATCH_SIZE = 10;
 const MAX_ITEMS = 100;
 
-const generateRandomActivity = (): ActivityItem => ({
-  id: crypto.randomUUID(),
-  user: USERS[Math.floor(Math.random() * USERS.length)],
-  action: ACTIONS[Math.floor(Math.random() * ACTIONS.length)],
-  timestamp: new Date().toLocaleTimeString(),
-});
+const timeAgo = (date: Date) => {
+  const now = new Date();
+  const diffMs = now.getTime() - date.getTime();
+  const diffMins = Math.floor(diffMs / 60000);
+
+  if (diffMins < 1) return 'just now';
+  if (diffMins === 1) return '1 min ago';
+  if (diffMins < 60) return `${diffMins} mins ago`;
+
+  const diffHours = Math.floor(diffMins / 60);
+  if (diffHours === 1) return '1 hour ago';
+  if (diffHours < 24) return `${diffHours} hours ago`;
+
+  const diffDays = Math.floor(diffHours / 24);
+  return diffDays === 1 ? '1 day ago' : `${diffDays} days ago`;
+};
+
+const generateRandomActivity = (): ActivityItem => {
+  const date = new Date();
+  return {
+    id: crypto.randomUUID(),
+    user: users[Math.floor(Math.random() * users.length)],
+    action: actions[Math.floor(Math.random() * actions.length)],
+    timestamp: date,
+    color: colors[Math.floor(Math.random() * colors.length)],
+  };
+};
 
 export const useActivityFeed = () => {
   const [activities, setActivities] = useState<ActivityItem[]>(() =>
@@ -27,7 +49,6 @@ export const useActivityFeed = () => {
   );
 
   const [hasNextPage, setHasNextPage] = useState(BATCH_SIZE < MAX_ITEMS);
-
   const [loading, setLoading] = useState(false);
 
   const loadMore = useCallback(() => {
@@ -57,5 +78,21 @@ export const useActivityFeed = () => {
     rootMargin: '0px 0px 400px 0px',
   });
 
-  return { activities, loading, hasNextPage, sentryRef };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActivities((prev) => [...prev]);
+    }, 60000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return {
+    activities: activities.map((activity) => ({
+      ...activity,
+      timestampText: timeAgo(activity.timestamp),
+    })),
+    loading,
+    hasNextPage,
+    sentryRef,
+  };
 };

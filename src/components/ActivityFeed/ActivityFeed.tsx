@@ -6,6 +6,7 @@ import {
   Timestamp,
   Info,
   LoaderContainer,
+  UserAvatar,
 } from '@/components/ActivityFeed/ActivityFeed.styles.ts';
 import { CircularProgress } from '@mui/material';
 import { useActivityFeed } from '@/hooks/useActivityFeed.ts';
@@ -14,7 +15,8 @@ export interface ActivityItem {
   id: string;
   user: string;
   action: string;
-  timestamp: string;
+  timestamp: Date;
+  color: string;
 }
 
 const ActivityFeed = () => {
@@ -24,12 +26,13 @@ const ActivityFeed = () => {
     <Wrapper>
       <Title>Activity Feed</Title>
       <ListContainer>
-        {activities.map((item) => (
-          <ActivityItem key={item.id}>
+        {activities.map(({ id, user, action, color, timestampText }) => (
+          <ActivityItem key={id}>
             <Info>
-              <b>{item.user}</b> {item.action}
+              <UserAvatar style={{ background: color }}>{user[0]}</UserAvatar> <b>{user}</b>{' '}
+              {action}
             </Info>
-            <Timestamp>{item.timestamp}</Timestamp>
+            <Timestamp>{timestampText}</Timestamp>
           </ActivityItem>
         ))}
 

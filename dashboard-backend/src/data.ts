@@ -11,6 +11,7 @@ export const dashboard = {
   stats: {
     totalRevenue: 45231.89,
     totalUsers: 8429,
+    currentActive: 214,
     engagement: 64.2,
     conversion: 3.24,
   },

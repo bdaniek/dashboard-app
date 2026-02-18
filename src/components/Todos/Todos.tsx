@@ -7,7 +7,6 @@ import {
   TodoPriority,
   TodoInformation,
 } from '@/components/Todos/Todos.styles.ts';
-import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 
 interface TodosProps {
   todos: {
@@ -35,7 +34,9 @@ const Todos = ({ todos }: TodosProps) => {
               <TodoTitle>{title}</TodoTitle>
               <TodoPriority>{assignedTo}</TodoPriority>
             </TodoInformation>
-            <PriorityHighIcon sx={{ color: priorityColor[priority], fontSize: '30px' }} />
+            <TodoPriority sx={{ color: priorityColor[priority] }}>
+              [{priority.toUpperCase()}]
+            </TodoPriority>
           </TodoItem>
         ))}
       </ListContainer>

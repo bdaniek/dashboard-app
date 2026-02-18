@@ -10,6 +10,7 @@ import { type SyntheticEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext.tsx';
 import { TextField } from '@mui/material';
+import Carousel from '@/components/Carousel/Carousel.tsx';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -32,6 +33,7 @@ export default function LoginPage() {
 
   return (
     <Wrapper>
+      <Carousel />
       <Container>
         <Title>Log In</Title>
         <ErrorContainer>{error}</ErrorContainer>

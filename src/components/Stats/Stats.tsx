@@ -8,21 +8,25 @@ import {
   Label,
   Value,
 } from '@/components/Stats/Stats.styles.ts';
+import NorthIcon from '@mui/icons-material/North';
+import SouthIcon from '@mui/icons-material/South';
 
 interface StatsProps {
   totalRevenue: number;
   totalUsers: number;
+  currentActive: number;
   engagement: number;
   conversion: number;
-  isLoading: boolean;
 }
 
-const Stats = ({ totalRevenue, totalUsers, engagement, conversion }: StatsProps) => {
+const Stats = ({ totalRevenue, totalUsers, currentActive, engagement, conversion }: StatsProps) => {
+  const formattedRevenue = `$${totalRevenue.toLocaleString()}`;
+
   return (
     <Wrapper>
       <RevenueSection>
         <Label>Total revenue</Label>
-        <Value>{`$${totalRevenue}`}</Value>
+        <Value>{formattedRevenue}</Value>
       </RevenueSection>
 
       <UserSection>
@@ -35,13 +39,19 @@ const Stats = ({ totalRevenue, totalUsers, engagement, conversion }: StatsProps)
 
         <MetricBlock>
           <Label>Currently active users</Label>
-          <Value>{214}</Value>
+          <Value>{currentActive}</Value>
         </MetricBlock>
       </UserSection>
 
       <PerformanceSection>
-        <Label>{`Engagement Rate: ${engagement}%`}</Label>
-        <Label>{`Conversion Rate: ${conversion}%`}</Label>
+        <Label>
+          {`Engagement Rate: ${engagement}% +4.2%`}
+          <NorthIcon color="success" />
+        </Label>
+        <Label>
+          {`Conversion Rate: ${conversion}% -2.7%`}
+          <SouthIcon color="error" />
+        </Label>
       </PerformanceSection>
     </Wrapper>
   );

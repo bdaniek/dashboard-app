@@ -5,6 +5,7 @@ interface DashboardData {
   stats: {
     totalRevenue: number;
     totalUsers: number;
+    currentActive: number;
     engagement: number;
     conversion: number;
   };

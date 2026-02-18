@@ -6,7 +6,7 @@ export const useCurrentDate = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setDate(new Date());
-    }, 1000); // updates every second
+    }, 1000);
 
     return () => clearInterval(interval);
   }, []);
