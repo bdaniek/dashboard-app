@@ -6,8 +6,9 @@ export const Wrapper = styled('div')`
   flex-direction: column;
   flex: 1;
   border: 1px solid ${({ theme }) => theme.palette.text.secondary};
-  border-radius: 30px;
+  border-radius: 24px;
   background: ${({ theme }) => theme.palette.background.paper};
+  padding: 20px;
 `;
 
 export const Title = styled('div')`

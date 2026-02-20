@@ -9,21 +9,44 @@ import {
 } from 'recharts';
 import { Wrapper, Title } from '@/components/RevenueChart/RevenueChart.styles.ts';
 import theme from '@/utils/theme.ts';
+import type { TimeRange } from '@/types/types.ts';
 
 interface RevenueChartProps {
-  revenue: {
-    month: string;
-    revenue: number;
-  }[];
+  chartData: { date: string; revenue: number }[];
+  timeRange?: TimeRange;
 }
 
-const RevenueChart = ({ revenue }: RevenueChartProps) => {
+const RevenueChart = ({ chartData, timeRange }: RevenueChartProps) => {
+  const formatXAxis = (value: string) => {
+    const date = new Date(value);
+
+    switch (timeRange) {
+      case '7D':
+        return date.getDate().toString();
+
+      case '30D':
+        return date.toLocaleDateString('en-US', {
+          day: '2-digit',
+          month: 'short',
+        });
+
+      case '90D':
+      case '1Y':
+        return date.toLocaleDateString('en-US', {
+          month: 'short',
+        });
+
+      default:
+        return date.toISOString();
+    }
+  };
+
   return (
     <Wrapper>
       <Title>Monthly Revenue</Title>
 
       <ResponsiveContainer width="100%">
-        <LineChart data={revenue} margin={{ top: 10, right: 20, left: -10, bottom: 0 }}>
+        <LineChart data={chartData} margin={{ top: 10, right: 20, left: -10, bottom: 0 }}>
           <defs>
             <linearGradient id="revenueGradient" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor={theme.palette.primary.main} stopOpacity={0.4} />
@@ -34,7 +57,8 @@ const RevenueChart = ({ revenue }: RevenueChartProps) => {
           <CartesianGrid strokeDasharray="4 4" stroke={theme.palette.divider} vertical={false} />
 
           <XAxis
-            dataKey="month"
+            dataKey="date"
+            tickFormatter={formatXAxis}
             axisLine={false}
             tickLine={false}
             tick={{ fill: theme.palette.text.secondary, fontSize: 12 }}

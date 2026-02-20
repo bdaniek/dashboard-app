@@ -1,7 +1,8 @@
 import { styled, Button } from '@mui/material';
 
 export const Wrapper = styled('div')`
-  height: 10%;
+  height: 80px;
+  flex-shrink: 0;
   width: 100%;
   padding: 0 40px;
   display: flex;

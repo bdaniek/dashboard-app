@@ -4,7 +4,7 @@ export const Wrapper = styled('div')`
   height: 100%;
   width: 400px;
   background: linear-gradient(135deg, #ff8c42 0%, #f05aa0 100%);
-  border-radius: 30px;
+  border-radius: 24px;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -13,9 +13,10 @@ export const Wrapper = styled('div')`
 
 export const UserSection = styled('div')`
   display: flex;
-  position: relative;
-  justify-content: space-between;
   flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
 `;
 
 export const PerformanceSection = styled('div')`
@@ -47,10 +48,9 @@ export const Value = styled('div')`
   display: flex;
 `;
 
+export const Comparison = styled('div')<{ isPositive: boolean }>``;
+
 export const Divider = styled('div')`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   height: 80px;
   width: 2px;
   background-image: repeating-linear-gradient(
@@ -60,5 +60,4 @@ export const Divider = styled('div')`
     transparent 2px,
     transparent 4px
   );
-  left: 140px;
 `;

@@ -7,9 +7,9 @@ import {
   MetricBlock,
   Label,
   Value,
+  Comparison,
 } from '@/components/Stats/Stats.styles.ts';
-import NorthIcon from '@mui/icons-material/North';
-import SouthIcon from '@mui/icons-material/South';
+import type { TimeRange } from '@/types/types.ts';
 
 interface StatsProps {
   totalRevenue: number;
@@ -17,9 +17,19 @@ interface StatsProps {
   currentActive: number;
   engagement: number;
   conversion: number;
+  revenueComparison: string;
+  timeRange: TimeRange;
 }
 
-const Stats = ({ totalRevenue, totalUsers, currentActive, engagement, conversion }: StatsProps) => {
+const Stats = ({
+  totalRevenue,
+  totalUsers,
+  currentActive,
+  engagement,
+  conversion,
+  revenueComparison,
+  timeRange,
+}: StatsProps) => {
   const formattedRevenue = `$${totalRevenue.toLocaleString()}`;
 
   return (
@@ -27,6 +37,9 @@ const Stats = ({ totalRevenue, totalUsers, currentActive, engagement, conversion
       <RevenueSection>
         <Label>Total revenue</Label>
         <Value>{formattedRevenue}</Value>
+        <Comparison isPositive={revenueComparison.startsWith('+')}>
+          {timeRange === '1Y' ? '' : revenueComparison}
+        </Comparison>
       </RevenueSection>
 
       <UserSection>
@@ -38,20 +51,14 @@ const Stats = ({ totalRevenue, totalUsers, currentActive, engagement, conversion
         <Divider></Divider>
 
         <MetricBlock>
-          <Label>Currently active users</Label>
+          <Label>Active users</Label>
           <Value>{currentActive}</Value>
         </MetricBlock>
       </UserSection>
 
       <PerformanceSection>
-        <Label>
-          {`Engagement Rate: ${engagement}% +4.2%`}
-          <NorthIcon color="success" />
-        </Label>
-        <Label>
-          {`Conversion Rate: ${conversion}% -2.7%`}
-          <SouthIcon color="error" />
-        </Label>
+        <Label>{`Engagement Rate: ${engagement}%`}</Label>
+        <Label>{`Conversion Rate: ${conversion}%`}</Label>
       </PerformanceSection>
     </Wrapper>
   );

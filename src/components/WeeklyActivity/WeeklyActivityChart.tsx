@@ -1,4 +1,4 @@
-import { ResponsiveContainer, Tooltip, PieChart, Pie, Cell, Legend } from 'recharts';
+import { ResponsiveContainer, Tooltip, PieChart, Pie, Cell } from 'recharts';
 import { Wrapper, Title } from '@/components/WeeklyActivity/WeeklyActivityChart.styles.ts';
 import { weeklyActivityColors } from '@/utils/theme.ts';
 
@@ -47,13 +47,6 @@ const WeeklyActivityChart = ({ weeklyActivity }: WeeklyActivityChartProps) => {
               boxShadow: '0 12px 30px rgba(0,0,0,0.35)',
               color: 'white',
             }}
-          />
-
-          <Legend
-            verticalAlign="bottom"
-            align="center"
-            iconType="circle"
-            wrapperStyle={{ marginTop: 16, fontSize: 12, color: '#94a3b8' }}
           />
 
           <text

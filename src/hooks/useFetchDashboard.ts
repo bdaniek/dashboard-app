@@ -1,17 +1,10 @@
 import { useState, useEffect } from 'react';
 import { getDashboard } from '@/services/api.ts';
+import type { Metric, Transaction } from '@/types/types.ts';
 
 interface DashboardData {
-  stats: {
-    totalRevenue: number;
-    totalUsers: number;
-    currentActive: number;
-    engagement: number;
-    conversion: number;
-  };
-  revenue: { month: string; revenue: number }[];
-  todos: { id: string; title: string; priority: string; assignedTo: string }[];
-  usersBySource: { source: string; count: number; percentage: number }[];
+  metrics: Metric[];
+  transactions: Transaction[];
   weeklyActivity: { day: string; visits: number }[];
 }
 
