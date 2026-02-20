@@ -1,7 +1,7 @@
 import { styled } from '@mui/material';
 
 export const Wrapper = styled('div')`
-  height: 100%;
+  height: 320px;
   min-width: 300px;
   display: flex;
   flex-direction: column;

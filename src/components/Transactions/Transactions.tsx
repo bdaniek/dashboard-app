@@ -47,7 +47,7 @@ export const Transactions = ({ transactions }: TransactionsProps) => {
 
       <ScrollContainer>
         {visibleTransactions.map(({ id, user, createdAt, paymentMethod, status, amount }) => (
-          <TransactionItem key={id}>
+          <TransactionItem key={id} index={Number(id.replace('tx-', ''))}>
             <Left>
               <Username>{user}</Username>
               <Label>
@@ -58,7 +58,7 @@ export const Transactions = ({ transactions }: TransactionsProps) => {
 
             <Right>
               <Amount>${amount.toLocaleString()}</Amount>
-              <Status status={status}>{status}</Status>
+              <Status>{status}</Status>
             </Right>
           </TransactionItem>
         ))}

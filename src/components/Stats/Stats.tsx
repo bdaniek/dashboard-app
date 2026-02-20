@@ -10,6 +10,7 @@ import {
   Comparison,
 } from '@/components/Stats/Stats.styles.ts';
 import type { TimeRange } from '@/types/types.ts';
+import { useCountUp } from '@/hooks/useCountUp.ts';
 
 interface StatsProps {
   totalRevenue: number;
@@ -30,7 +31,8 @@ const Stats = ({
   revenueComparison,
   timeRange,
 }: StatsProps) => {
-  const formattedRevenue = `$${totalRevenue.toLocaleString()}`;
+  const animatedRevenue = useCountUp(totalRevenue);
+  const formattedRevenue = `$${animatedRevenue.toLocaleString()}`;
 
   return (
     <Wrapper>

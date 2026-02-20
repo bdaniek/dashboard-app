@@ -1,4 +1,16 @@
-import { styled } from '@mui/material';
+import { styled, keyframes } from '@mui/material';
+import theme from '@/utils/theme.ts';
+
+const fadeSlideIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 export const Wrapper = styled('div')`
   height: 100%;
@@ -15,7 +27,7 @@ export const Wrapper = styled('div')`
 `;
 
 export const Title = styled('div')`
-  padding: 20px 30px;
+  padding: 20px 46px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -32,15 +44,18 @@ export const ScrollContainer = styled('div')`
   scrollbar-width: thin;
 `;
 
-export const TransactionItem = styled('div')`
+export const TransactionItem = styled('div')<{ index: number }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  padding: 16px 0;
+  padding: 16px;
   border-bottom: 1px solid ${({ theme }) => theme.palette.divider};
 
-  transition: background 0.2s ease;
+  transition: all 200ms ease;
+  opacity: 0;
+  animation: ${fadeSlideIn} 400ms ease forwards;
+  animation-delay: ${({ index }) => index * 0.02}s;
 
   &:hover {
     background: ${({ theme }) => theme.palette.action.hover};
@@ -85,27 +100,12 @@ export const Amount = styled('span')`
   font-weight: 700;
 `;
 
-export const Status = styled('span')<{ status: 'paid' | 'refunded' | 'failed' }>`
+export const Status = styled('span')`
   padding: 4px 10px;
   border-radius: 12px;
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
-
-  ${({ status, theme }) => {
-    if (status === 'paid')
-      return `
-        background: ${theme.palette.success.light};
-        color: ${theme.palette.success.dark};
-      `;
-    if (status === 'refunded')
-      return `
-        background: ${theme.palette.warning.light};
-        color: ${theme.palette.warning.dark};
-      `;
-    return `
-      background: ${theme.palette.error.light};
-      color: ${theme.palette.error.dark};
-    `;
-  }}
+  background: ${theme.palette.success.light};
+  color: ${theme.palette.success.dark};
 `;

@@ -28,7 +28,6 @@ export const Section = styled('div')`
   align-items: center;
   justify-content: center;
   gap: 40px;
-  overflow: hidden;
 `;
 
 export const LoaderContainer = styled('div')`

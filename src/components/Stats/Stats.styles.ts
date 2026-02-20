@@ -9,6 +9,9 @@ export const Wrapper = styled('div')`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.16),
+    0 6px 16px rgba(0, 0, 0, 0.1);
 `;
 
 export const UserSection = styled('div')`
