@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import DashboardPage from '@/pages/DashboardPage/DashboardPage.tsx';
 import LoginPage from '@/pages/LoginPage/LoginPage.tsx';
-import ProtectedRoute from '@/components/ProtectedRoute.tsx';
+import ProtectedRoute from '@/components/ProtectedRoute/ProtectedRoute.tsx';
 
 export function AppRoutes() {
   return (

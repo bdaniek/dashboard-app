@@ -1,28 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getDashboard } from '@/services/api.ts';
-import type { Metric, Transaction } from '@/types/types.ts';
-
-interface DashboardData {
-  metrics: Metric[];
-  transactions: Transaction[];
-  weeklyActivity: { day: string; visits: number }[];
-}
-
-type DashboardSuccess = {
-  status: 'success';
-  data: DashboardData;
-};
-
-type DashboardLoading = {
-  status: 'loading';
-};
-
-type DashboardError = {
-  status: 'error';
-  error: string;
-};
-
-type DashboardState = DashboardLoading | DashboardSuccess | DashboardError;
+import type { DashboardState } from '@/types/types.ts';
 
 export const useFetchDashboard = (): DashboardState => {
   const [state, setState] = useState<DashboardState>({

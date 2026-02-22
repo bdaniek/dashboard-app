@@ -13,7 +13,7 @@ import type { TimeRange } from '@/types/types.ts';
 
 interface RevenueChartProps {
   chartData: { date: string; revenue: number }[];
-  timeRange?: TimeRange;
+  timeRange: TimeRange;
 }
 
 const RevenueChart = ({ chartData, timeRange }: RevenueChartProps) => {

@@ -11,17 +11,18 @@ const RANGE_LABEL: Record<TimeRange, string> = {
 export const useDashboardMetrics = (metrics: Metric[], timeRange: TimeRange): DashboardMetrics => {
   return useMemo(() => {
     const now = new Date();
+    const day = 24 * 60 * 60 * 1000;
 
     const getStartDate = () => {
       switch (timeRange) {
         case '7D':
-          return new Date(now.getTime() - 7 * 86400000);
+          return new Date(now.getTime() - 7 * day);
         case '30D':
-          return new Date(now.getTime() - 30 * 86400000);
+          return new Date(now.getTime() - 30 * day);
         case '90D':
-          return new Date(now.getTime() - 90 * 86400000);
+          return new Date(now.getTime() - 90 * day);
         case '1Y':
-          return new Date(now.getTime() - 365 * 86400000);
+          return new Date(now.getTime() - 365 * day);
         default:
           return new Date(0);
       }

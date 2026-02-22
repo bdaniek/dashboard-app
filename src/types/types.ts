@@ -25,6 +25,28 @@ export interface DashboardMetrics {
   revenueComparison: string;
 }
 
+interface DashboardData {
+  metrics: Metric[];
+  transactions: Transaction[];
+  weeklyActivity: { day: string; visits: number }[];
+}
+
+type DashboardSuccess = {
+  status: 'success';
+  data: DashboardData;
+};
+
+type DashboardLoading = {
+  status: 'loading';
+};
+
+type DashboardError = {
+  status: 'error';
+  error: string;
+};
+
+export type DashboardState = DashboardLoading | DashboardSuccess | DashboardError;
+
 export type TimeRange = '7D' | '30D' | '90D' | '1Y';
 
 export const TIME_RANGES: TimeRange[] = ['7D', '30D', '90D', '1Y'];

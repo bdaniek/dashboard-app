@@ -1,6 +1,5 @@
 import { createTheme } from '@mui/material/styles';
 
-export const usersSourceColors = ['#ff7a3d', '#ff5e57', '#ff3e6e', '#d63ea8', '#8c3ebf'];
 export const weeklyActivityColors = [
   '#ff7a3d',
   '#ff5e57',
