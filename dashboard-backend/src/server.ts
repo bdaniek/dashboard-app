@@ -5,11 +5,7 @@ import { users, dashboard } from './data.ts';
 const app = express();
 const PORT = 5001;
 
-app.use(
-  cors({
-    origin: '*',
-  }),
-);
+app.use(cors());
 app.use(express.json());
 
 app.post('/api/login', (req, res) => {
