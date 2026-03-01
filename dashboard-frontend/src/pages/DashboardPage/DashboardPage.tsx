@@ -5,7 +5,7 @@ import {
   Wrapper,
   Section,
   Main,
-} from './DashboardPage.styles.ts';
+} from '@/pages/DashboardPage/DashboardPage.styles.ts';
 import { useFetchDashboard } from '@/hooks/useFetchDashboard.ts';
 import Stats from '@/components/Stats/Stats.tsx';
 import RevenueChart from '@/components/RevenueChart/RevenueChart.tsx';

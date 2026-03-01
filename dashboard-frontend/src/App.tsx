@@ -1,8 +1,8 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { ThemeProvider as StyledThemeProvider, createGlobalStyle } from 'styled-components';
 import theme from './utils/theme.ts';
-import { AppRoutes } from '@/AppRoutes.tsx';
-import { AuthProvider } from '@/context/AuthContext.tsx';
+import { AppRoutes } from './AppRoutes.tsx';
+import { AuthProvider } from './context/AuthContext.tsx';
 import { BrowserRouter } from 'react-router-dom';
 
 function App() {

@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext.tsx';
-import { Wrapper } from './ProtectedRoute.styles';
+import { Wrapper } from '@/components/ProtectedRoute/ProtectedRoute.styles';
 
 interface ProtectedRouteProps {
   children: ReactNode;

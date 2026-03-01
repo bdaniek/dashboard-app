@@ -5,7 +5,7 @@ import {
   Title,
   Wrapper,
   ErrorContainer,
-} from './LoginPage.styles.ts';
+} from '@/pages/LoginPage/LoginPage.styles.ts';
 import { type SyntheticEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext.tsx';

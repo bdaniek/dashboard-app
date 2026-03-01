@@ -11,7 +11,7 @@ import {
   Status,
   Label,
   StateWrapper,
-} from './Transactions.styles.ts';
+} from '@/components/Transactions/Transactions.styles.ts';
 import type { Transaction } from '@/types/types.ts';
 import useInfiniteScroll from 'react-infinite-scroll-hook';
 import CircularProgress from '@mui/material/CircularProgress';

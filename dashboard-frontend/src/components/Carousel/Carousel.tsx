@@ -1,4 +1,4 @@
-import { Wrapper, Track, Item } from './Carousel.styles.ts';
+import { Wrapper, Track, Item } from '@/components/Carousel/Carousel.styles.ts';
 
 const Carousel = () => (
   <Wrapper>
