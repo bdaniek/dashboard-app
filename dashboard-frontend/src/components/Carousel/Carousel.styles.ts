@@ -11,6 +11,7 @@ export const Wrapper = styled('header')`
   width: 100%;
   background: linear-gradient(135deg, #ff8c42 0%, #ff6b6b 50%, #e91e63 100%);
   padding: 14px 0;
+  overflow: hidden;
 `;
 
 export const Track = styled('div')`
