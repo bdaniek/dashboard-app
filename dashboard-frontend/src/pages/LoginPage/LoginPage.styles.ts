@@ -7,6 +7,7 @@ export const Wrapper = styled('div')`
   align-content: center;
   flex-wrap: wrap;
   height: 100vh;
+  overflow: hidden;
 `;
 
 export const Container = styled('div')`
