@@ -10,8 +10,7 @@ interface WeeklyActivityChartProps {
 }
 
 const WeeklyActivityChart = ({ weeklyActivity }: WeeklyActivityChartProps) => {
-  const totalVisits = weeklyActivity.reduce((acc, cur) => acc + cur.visits, 0);
-
+  const totalVisits = (weeklyActivity ?? []).reduce((acc, cur) => acc + cur.visits, 0);
   return (
     <Wrapper>
       <Title>Weekly Activity</Title>
@@ -19,7 +18,7 @@ const WeeklyActivityChart = ({ weeklyActivity }: WeeklyActivityChartProps) => {
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Pie
-            data={weeklyActivity}
+            data={weeklyActivity ?? []}
             dataKey="visits"
             nameKey="day"
             cx="50%"
@@ -32,7 +31,7 @@ const WeeklyActivityChart = ({ weeklyActivity }: WeeklyActivityChartProps) => {
               `${name}: ${percent != null ? (percent * 100).toFixed(1) : '0.0'}%`
             }
           >
-            {weeklyActivity.map((_, index) => (
+            {(weeklyActivity ?? []).map((_, index) => (
               <Cell key={index} fill={weeklyActivityColors[index % weeklyActivityColors.length]} />
             ))}
           </Pie>
