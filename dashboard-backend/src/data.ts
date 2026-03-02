@@ -516,4 +516,13 @@ export const dashboard = {
       createdAt: '2026-02-26T18:10:00',
     },
   ],
+  weeklyActivity: [
+    { day: 'Mon', visits: 340 },
+    { day: 'Tue', visits: 450 },
+    { day: 'Wed', visits: 380 },
+    { day: 'Thu', visits: 520 },
+    { day: 'Fri', visits: 680 },
+    { day: 'Sat', visits: 250 },
+    { day: 'Sun', visits: 190 }
+  ]
 };
