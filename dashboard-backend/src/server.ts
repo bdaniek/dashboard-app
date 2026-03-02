@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { users, dashboard } from './data.ts';
+import { users, dashboard } from './data';
 
 const app = express();
 const PORT = 5001;
