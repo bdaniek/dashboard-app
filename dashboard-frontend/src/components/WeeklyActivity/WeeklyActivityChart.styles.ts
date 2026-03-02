@@ -11,3 +11,11 @@ export const Wrapper = styled('div')`
 export const Title = styled('div')`
   font-weight: 700;
 `;
+
+export const LoaderContainer = styled('div')`
+  min-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;

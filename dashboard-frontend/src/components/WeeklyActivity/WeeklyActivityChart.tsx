@@ -1,16 +1,31 @@
 import { ResponsiveContainer, Tooltip, PieChart, Pie, Cell } from 'recharts';
-import { Wrapper, Title } from '@/components/WeeklyActivity/WeeklyActivityChart.styles.ts';
+import {
+  Wrapper,
+  Title,
+  LoaderContainer,
+} from '@/components/WeeklyActivity/WeeklyActivityChart.styles.ts';
 import { weeklyActivityColors } from '@/utils/theme.ts';
+import { CircularProgress } from '@mui/material';
 
 interface WeeklyActivityChartProps {
-  weeklyActivity: {
+  weeklyActivity?: {
     day: string;
     visits: number;
   }[];
 }
 
 const WeeklyActivityChart = ({ weeklyActivity }: WeeklyActivityChartProps) => {
-  const totalVisits = (weeklyActivity ?? []).reduce((acc, cur) => acc + cur.visits, 0);
+  const safeData = weeklyActivity ?? [];
+  const totalVisits = safeData.reduce((acc, cur) => acc + cur.visits, 0);
+
+  if (safeData.length === 0) {
+    return (
+      <LoaderContainer>
+        <CircularProgress />
+      </LoaderContainer>
+    );
+  }
+
   return (
     <Wrapper>
       <Title>Weekly Activity</Title>
