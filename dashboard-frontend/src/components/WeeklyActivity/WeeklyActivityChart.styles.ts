@@ -14,7 +14,7 @@ export const Title = styled('div')`
 
 export const LoaderContainer = styled('div')`
   min-width: 100%;
-  min-height: 100vh;
+  min-height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
