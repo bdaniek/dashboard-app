@@ -8,8 +8,9 @@ const RANGE_LABEL: Record<TimeRange, string> = {
   '1Y': 'year',
 };
 
-export const useDashboardMetrics = (metrics: Metric[], timeRange: TimeRange): DashboardMetrics => {
+export const useDashboardMetrics = (timeRange: TimeRange, metrics?: Metric[]): DashboardMetrics => {
   return useMemo(() => {
+    const safeMetrics = metrics ?? [];
     const now = new Date();
     const day = 24 * 60 * 60 * 1000;
 
@@ -29,8 +30,7 @@ export const useDashboardMetrics = (metrics: Metric[], timeRange: TimeRange): Da
     };
 
     const startDate = getStartDate();
-
-    const filtered = metrics.filter((item) => new Date(item.date) >= startDate);
+    const filtered = safeMetrics.filter((item) => new Date(item.date) >= startDate);
 
     const totalRevenue = filtered.reduce((sum, item) => sum + item.revenue, 0);
     const totalUsers = filtered.reduce((sum, item) => sum + item.users, 0);
@@ -47,7 +47,7 @@ export const useDashboardMetrics = (metrics: Metric[], timeRange: TimeRange): Da
       revenue: item.revenue,
     }));
 
-    const sorted = [...metrics].sort(
+    const sorted = [...safeMetrics].sort(
       (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
     );
 
