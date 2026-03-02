@@ -14,6 +14,8 @@ export const useFetchDashboard = (): DashboardState => {
           status: 'success',
           data: res.data,
         });
+        console.log('Dashboard API response:', res);
+        console.log('Dashboard data:', res.data);
       })
       .catch((err) => {
         setState({
