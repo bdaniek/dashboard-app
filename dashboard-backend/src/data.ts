@@ -112,7 +112,17 @@ export const dashboard = {
     { date: '2026-02-15', revenue: 13200, users: 1510, active: 1330, conversions: 250 },
     { date: '2026-02-19', revenue: 11100, users: 1520, active: 1340, conversions: 253 },
     { date: '2026-02-22', revenue: 12300, users: 1530, active: 1350, conversions: 255 },
-    { date: '2026-02-26', revenue: 11300, users: 1540, active: 1360, conversions: 258 },
+    { date: '2026-02-26', revenue: 11200, users: 1540, active: 1360, conversions: 258 },
+    { date: '2026-02-28', revenue: 13100, users: 1540, active: 1360, conversions: 258 },
+    { date: '2026-03-02', revenue: 10200, users: 1540, active: 1360, conversions: 258 },
+    { date: '2026-03-05', revenue: 14200, users: 1540, active: 1360, conversions: 258 },
+    { date: '2026-03-08', revenue: 10100, users: 1540, active: 1360, conversions: 258 },
+    { date: '2026-03-12', revenue: 11900, users: 1540, active: 1360, conversions: 258 },
+    { date: '2026-03-15', revenue: 11400, users: 1540, active: 1360, conversions: 258 },
+    { date: '2026-03-18', revenue: 12500, users: 1540, active: 1360, conversions: 258 },
+    { date: '2026-03-22', revenue: 13700, users: 1540, active: 1360, conversions: 258 },
+    { date: '2026-03-26', revenue: 14100, users: 1540, active: 1360, conversions: 258 },
+    { date: '2026-03-30', revenue: 15600, users: 1540, active: 1360, conversions: 258 },
   ],
   transactions: [
     {

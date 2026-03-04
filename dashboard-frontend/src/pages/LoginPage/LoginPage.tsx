@@ -9,7 +9,7 @@ import {
 import { type SyntheticEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext.tsx';
-import { TextField } from '@mui/material';
+import { CircularProgress, TextField } from '@mui/material';
 import Carousel from '@/components/Carousel/Carousel.tsx';
 
 export default function LoginPage() {
@@ -45,7 +45,6 @@ export default function LoginPage() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             margin="normal"
-            disabled={isLoading}
           />
 
           <TextField
@@ -55,17 +54,10 @@ export default function LoginPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             margin="normal"
-            disabled={isLoading}
           />
 
-          <LoginButton
-            fullWidth
-            variant="contained"
-            type="submit"
-            disabled={isLoading}
-            sx={{ mt: 3, py: 1.5 }}
-          >
-            {isLoading ? 'Loading...' : 'Sign In'}
+          <LoginButton fullWidth variant="contained" type="submit" disabled={isLoading}>
+            {isLoading ? <CircularProgress sx={{ color: 'white' }} size={30} /> : 'Sign In'}
           </LoginButton>
         </form>
       </Container>

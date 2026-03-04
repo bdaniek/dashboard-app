@@ -1,10 +1,12 @@
 # Dashboard App
 
-A simple dashboard application build with **Vite**
+A fullstack dashboard application built with **Vite (React + TypeScript)** on the frontend and **Node.js + Express.js** on the backend.
+## Live Application
 
-The frontend communicates with a local backend server.  
-The backend must be running before the frontend can fetch data.
+The project is fully deployed and ready to use:
 
-The backend runs on **http://localhost:5001** by default.
+Frontend (Netlify):  
+https://dashboard-app-1.netlify.app/
 
-You can change the backend port in `dashboard-backend/src/server.ts` and update the frontend API URL in `src/api.ts`.
+Backend (Railway):  
+Deployed and connected to the production environment.

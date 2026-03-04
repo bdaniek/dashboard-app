@@ -26,6 +26,9 @@ export const Title = styled('div')`
 
 export const LoginButton = styled(ButtonMUI)`
   border-radius: 20px;
+  color: ${({ theme }) => theme.palette.text.disabled};
+  margin-top: 10px;
+  padding: 10px 0;
 `;
 
 export const ErrorContainer = styled('div')`
