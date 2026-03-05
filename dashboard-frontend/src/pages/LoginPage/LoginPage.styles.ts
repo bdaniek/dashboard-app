@@ -24,18 +24,24 @@ export const Title = styled('div')`
   text-align: center;
 `;
 
-export const LoginButton = styled(ButtonMUI)`
+export const LoginButton = styled(ButtonMUI)<{ disabled: boolean }>`
   border-radius: 20px;
   color: ${({ theme }) => theme.palette.text.disabled};
   margin-top: 10px;
   padding: 10px 0;
+  height: 46px;
+
+  &:disabled {
+    background: lightgray;
+  }
 `;
 
-export const ErrorContainer = styled('div')`
+export const ErrorContainer = styled('div')<{ isError: boolean }>`
   color: ${({ theme }) => theme.palette.error.main};
   width: 100%;
   text-align: center;
   margin-top: 10px;
+  opacity: ${({ isError }) => (isError ? 1 : 0)};
 `;
 
 export const StyledInput = styled(TextField)``;

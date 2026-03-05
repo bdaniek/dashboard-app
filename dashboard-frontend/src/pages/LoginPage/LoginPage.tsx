@@ -36,7 +36,7 @@ export default function LoginPage() {
       <Carousel />
       <Container>
         <Title>Log In</Title>
-        <ErrorContainer>{error}</ErrorContainer>
+        <ErrorContainer isError={error !== ''}>{error}</ErrorContainer>
         <form onSubmit={handleLogin}>
           <TextField
             fullWidth
@@ -56,7 +56,12 @@ export default function LoginPage() {
             margin="normal"
           />
 
-          <LoginButton fullWidth variant="contained" type="submit" disabled={isLoading}>
+          <LoginButton
+            fullWidth
+            variant="contained"
+            type="submit"
+            disabled={isLoading || !email || !password}
+          >
             {isLoading ? <CircularProgress sx={{ color: 'white' }} size={30} /> : 'Sign In'}
           </LoginButton>
         </form>

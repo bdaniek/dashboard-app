@@ -55,7 +55,7 @@ export const TransactionItem = styled('div')<{ index: number }>`
   transition: all 200ms ease;
   opacity: 0;
   animation: ${fadeSlideIn} 400ms ease forwards;
-  animation-delay: ${({ index }) => index * 0.02}s;
+  animation-delay: ${({ index }) => (index % 8) * 0.03}s;
 
   &:hover {
     background: ${({ theme }) => theme.palette.action.hover};
