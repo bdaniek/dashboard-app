@@ -17,11 +17,14 @@ import type { TimeRange } from '@/types/types.ts';
 import { useDashboardMetrics } from '@/hooks/useDashboardMetrics.ts';
 import TimeRangeSwitcher from '@/components/TimeRangeSwitcher/TimeRangeSwitcher.tsx';
 import { Transactions } from '@/components/Transactions/Transactions.tsx';
+import { useIsMobile } from '@/hooks/useIsMobile.ts';
 
 export default function DashboardPage() {
   const [timeRange, setTimeRange] = useState<TimeRange>('30D');
   const state = useFetchDashboard();
   const isDataLoading = state.status === 'loading';
+  const isMobile = useIsMobile();
+  const isTooSmall = useIsMobile(405);
 
   const metrics = state.status === 'success' ? state.data.metrics : [];
 
@@ -34,6 +37,10 @@ export default function DashboardPage() {
     conversion,
     revenueComparison,
   } = useDashboardMetrics(metrics, timeRange);
+
+  if (isTooSmall) {
+    return <LoaderContainer>Please use a bigger screen for the best experience.</LoaderContainer>;
+  }
 
   if (isDataLoading) {
     return (
@@ -48,15 +55,15 @@ export default function DashboardPage() {
   }
 
   return (
-    <Wrapper>
+    <Wrapper isMobile={isMobile}>
       <Header />
       <TimeRangeSwitcher value={timeRange} onChange={setTimeRange} />
-      <Container>
+      <Container isMobile={isMobile}>
         <Main>
           <Section>
             <RevenueChart chartData={chartData} timeRange={timeRange} />
           </Section>
-          <Section>
+          <Section isMobile={isMobile}>
             <Stats
               totalRevenue={totalRevenue}
               totalUsers={totalUsers}

@@ -1,6 +1,6 @@
 import { styled, Button } from '@mui/material';
 
-export const Wrapper = styled('div')`
+export const Wrapper = styled('div')<{ isMobile: boolean }>`
   height: 80px;
   flex-shrink: 0;
   width: 100%;
@@ -9,6 +9,14 @@ export const Wrapper = styled('div')`
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid ${({ theme }) => theme.palette.text.secondary};
+
+  ${({ isMobile }) =>
+    isMobile &&
+    `
+    flex-direction: column;
+    height: 110px;
+    justify-content: center;
+  `}
 `;
 
 export const DateText = styled('div')`

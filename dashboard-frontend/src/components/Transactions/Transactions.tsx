@@ -15,6 +15,7 @@ import {
 import type { Transaction } from '@/types/types.ts';
 import useInfiniteScroll from 'react-infinite-scroll-hook';
 import CircularProgress from '@mui/material/CircularProgress';
+import { useIsMobile } from '@/hooks/useIsMobile.ts';
 
 const BATCH_SIZE = 8;
 
@@ -24,6 +25,7 @@ interface TransactionsProps {
 
 export const Transactions = ({ transactions }: TransactionsProps) => {
   const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
+  const isMobile = useIsMobile();
 
   const loadMore = useCallback(() => {
     setTimeout(() => {
@@ -42,7 +44,7 @@ export const Transactions = ({ transactions }: TransactionsProps) => {
   const visibleTransactions = transactions.slice(0, visibleCount);
 
   return (
-    <Wrapper>
+    <Wrapper isMobile={isMobile}>
       <Title>Recent Transactions</Title>
 
       <ScrollContainer>

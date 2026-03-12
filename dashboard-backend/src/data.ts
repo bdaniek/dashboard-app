@@ -117,6 +117,9 @@ export const dashboard = {
     { date: '2026-03-02', revenue: 10200, users: 1540, active: 1360, conversions: 258 },
     { date: '2026-03-05', revenue: 14200, users: 1540, active: 1360, conversions: 258 },
     { date: '2026-03-08', revenue: 10100, users: 1540, active: 1360, conversions: 258 },
+    { date: '2026-03-10', revenue: 15600, users: 1640, active: 1260, conversions: 265 },
+    { date: '2026-03-12', revenue: 13100, users: 1720, active: 1380, conversions: 272},
+    { date: '2026-03-14', revenue: 15800, users: 1780, active: 1410, conversions: 288 },
   ],
   transactions: [
     {

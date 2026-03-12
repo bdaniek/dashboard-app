@@ -12,7 +12,7 @@ const fadeSlideIn = keyframes`
   }
 `;
 
-export const Wrapper = styled('div')`
+export const Wrapper = styled('div')<{ isMobile: boolean }>`
   height: 100%;
   flex: 1;
   min-width: 280px;
@@ -24,6 +24,12 @@ export const Wrapper = styled('div')`
     linear-gradient(${({ theme }) => theme.palette.background.paper}) padding-box,
     linear-gradient(135deg, #ff8c42, #f05aa0) border-box;
   border-radius: 24px;
+
+  ${({ isMobile }) =>
+    isMobile &&
+    `
+    max-height: 700px;
+  `}
 `;
 
 export const Title = styled('div')`

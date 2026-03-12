@@ -1,6 +1,6 @@
 import { styled } from '@mui/material';
 
-export const Wrapper = styled('div')`
+export const Wrapper = styled('div')<{ isMobile: boolean }>`
   height: 40px;
   flex-shrink: 0;
   display: flex;
@@ -11,6 +11,12 @@ export const Wrapper = styled('div')`
   gap: 8px;
   width: fit-content;
   margin: 10px 40px 0 40px;
+
+  ${({ isMobile }) =>
+    isMobile &&
+    `
+      margin: 10px auto 0 auto;
+  `}
 `;
 
 export const RangeButton = styled('button')<{ isSelected?: boolean }>`
